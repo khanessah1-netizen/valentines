@@ -1,32 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 // 18 images
 const images = [
-  "/game-photos/1.avif.avif",
-  "/game-photos/2.avif.avif",
-  "/game-photos/3.avif.avif",
-  "/game-photos/4.avif.avif",
-  "/game-photos/5.avif.avif",
-  "/game-photos/6.avif.avif",
-  "/game-photos/7.avif.avif",
-  "/game-photos/8.avif.avif",
-  "/game-photos/9.avif.avif",
-  "/game-photos/10.avif.avif",
-  "/game-photos/11.avif.avif",
-  "/game-photos/12.avif.avif",
-  "/game-photos/13.avif.avif",
-  "/game-photos/14.avif.avif",
-  "/game-photos/15.avif.avif",
-  "/game-photos/16.avif.avif",
-  "/game-photos/17.avif.avif",
-  "/game-photos/18.avif.avif",
+  "/valentines/game-photos/1.avif",
+  "/valentines/game-photos/2.avif",
+  "/valentines/game-photos/3.avif",
+  "/valentines/game-photos/4.avif",
+  "/valentines/game-photos/5.avif",
+  "/valentines/game-photos/6.avif",
+  "/valentines/game-photos/7.avif",
+  "/valentines/game-photos/8.avif",
+  "/valentines/game-photos/9.avif",
+  "/valentines/game-photos/10.avif",
+  "/valentines/game-photos/32.avif",
+  "/valentines/game-photos/12.avif",
+  "/valentines/game-photos/13.avif",
+  "/valentines/game-photos/14.avif",
+  "/valentines/game-photos/15.avif",
+  "/valentines/game-photos/16.avif",
+  "/valentines/game-photos/17.avif",
+  "/valentines/game-photos/18.avif",
 ];
 
-// Create 18 pairs of images (36 images in total)
+// Create 18 pairs of images (36 images total)
 const imagePairs = images.flatMap((image) => [image, image]);
 
 const shuffleArray = (array: string[]) => {
@@ -70,10 +69,9 @@ export default function PhotoPairGame({
         setMatched((prev) => [...prev, firstIndex, index]);
         setSelected([]);
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait 1 second
-
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         setIncorrect([firstIndex, index]);
-        setTimeout(() => setIncorrect([]), 1000); // Clear incorrect after 1 second
+        setTimeout(() => setIncorrect([]), 1000);
         setTimeout(() => setSelected([]), 1000);
       }
     } else {
@@ -81,7 +79,6 @@ export default function PhotoPairGame({
     }
   };
 
-  // Check if game is won
   useEffect(() => {
     if (matched.length === imagePairs.length) {
       handleShowProposal();
@@ -90,17 +87,11 @@ export default function PhotoPairGame({
 
   return (
     <div className="grid grid-cols-9 gap-1 lg:gap-2 max-w-[95vw] mx-auto place-items-center">
-      {/* Image preload */}
+
+      {/* Preload images */}
       <div className="hidden">
         {images.map((image, i) => (
-          <Image
-            key={i}
-            src={image}
-            alt={`Image ${i + 1}`}
-            fill
-            className="object-cover"
-            priority
-          />
+          <img key={i} src={image} alt={Image ${i + 1}} />
         ))}
       </div>
 
@@ -111,9 +102,9 @@ export default function PhotoPairGame({
             className="w-[11vh] h-[11vh] lg:w-20 lg:h-20 relative cursor-pointer"
             whileHover={{ scale: 1.1 }}
             onClick={() => handleClick(index)}
-            style={{ perspective: "1000px" }} // Add perspective for 3D effect
+            style={{ perspective: "1000px" }}
           >
-            {/* Back of the card */}
+            {/* Back */}
             {!selected.includes(index) && !matched.includes(index) && (
               <motion.div
                 className="w-full h-full bg-gray-300 rounded-sm lg:rounded-md absolute z-10"
@@ -129,7 +120,7 @@ export default function PhotoPairGame({
               />
             )}
 
-            {/* Front of the card (image) */}
+            {/* Front image */}
             {(selected.includes(index) || matched.includes(index)) && (
               <motion.div
                 className="w-full h-full absolute"
@@ -138,11 +129,10 @@ export default function PhotoPairGame({
                 transition={{ duration: 0.5 }}
                 style={{ backfaceVisibility: "hidden" }}
               >
-                <Image
+                <img
                   src={images[index]}
-                  alt={`Imagen ${index + 1}`}
-                  fill
-                  className="rounded-sm lg:rounded-md object-cover"
+                  alt={Image ${index + 1}}
+                  className="w-full h-full rounded-sm lg:rounded-md object-cover"
                 />
               </motion.div>
             )}

@@ -91,7 +91,7 @@ export default function PhotoPairGame({
       {/* Preload images */}
       <div className="hidden">
         {images.map((image, i) => (
-          <img key={i} src={image} alt={Image ${i + 1}} />
+          <img key={i} src={image} alt={"Image " + (i + 1)} />
         ))}
       </div>
 
@@ -131,7 +131,7 @@ export default function PhotoPairGame({
               >
                 <img
                   src={images[index]}
-                  alt={Image ${index + 1}}
+                  alt={"Image " + (index + 1)}
                   className="w-full h-full rounded-sm lg:rounded-md object-cover"
                 />
               </motion.div>

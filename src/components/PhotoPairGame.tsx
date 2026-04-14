@@ -25,7 +25,6 @@ const images = [
   "/game-photos/17.avif.avif",
   "/game-photos/18.avif.avif",
 ];
-];
 
 // Create 18 pairs of images (36 images in total)
 const imagePairs = images.flatMap((image) => [image, image]);

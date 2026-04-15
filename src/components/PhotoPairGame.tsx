@@ -62,7 +62,6 @@ export default function PhotoPairGame({
 );
 const [images] = useState(() => shuffleArray([...imagePairs]));
 const [images] = useState(() => shuffleArray([...imagePairs]));
-
   const handleClick = async (index: number) => {
     if (selected.length === 2 || matched.includes(index) || selected.includes(index)) return;
 

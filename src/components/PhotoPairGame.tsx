@@ -58,7 +58,7 @@ export default function PhotoPairGame({
   const [incorrect, setIncorrect] = useState<number[]>([]);
   const imagePairs = Array.from(
   { length: 18 },
-  (_, i) => `/game-photos/${i + 1}.avif`
+  (_, i) => `/valentines/game-photos/${i + 1}.avif`
 ).flatMap((img) => [img, img]);
 const [images] = useState(() => shuffleArray([...imagePairs]));
 

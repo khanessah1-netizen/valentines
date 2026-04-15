@@ -89,7 +89,7 @@ export default function PhotoPairGame({
     <div className="grid grid-cols-9 gap-1 lg:gap-2 max-w-[95vw] mx-auto place-items-center">
 
       {/* Preload images */}
-      <div className="hidden">
+      <div className="invisible absolute w-0 h-0 overflow-hidden">
         {images.map((image, i) => (
           <img key={i} src={image} alt={"Image " + (i + 1)} />
         ))}

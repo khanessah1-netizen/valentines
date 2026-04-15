@@ -89,12 +89,11 @@ export default function PhotoPairGame({
     <div className="grid grid-cols-9 gap-1 lg:gap-2 max-w-[95vw] mx-auto place-items-center">
 
       {/* Preload images */}
-      <div className="invisible absolute w-0 h-0 overflow-hidden">
-        {images.map((image, i) => (
-          <img key={i} src={image} alt={"Image " + (i + 1)} />
-        ))}
-      </div>
-
+      <div style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden', opacity: 0 }}>
+  {imagePairs.map((image, i) => (
+    <img key={i} src={image} alt={"Image " + (i + 1)} style={{ width: 1, height: 1 }} />
+  ))}
+</div>
       {heartLayout.flat().map((index, i) =>
         index !== null ? (
           <motion.div

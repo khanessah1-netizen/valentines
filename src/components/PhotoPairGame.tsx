@@ -85,15 +85,12 @@ export default function PhotoPairGame({
     }
   }, [matched, handleShowProposal]);
 
-  return (
+ return (
+  <>
+    {imagePairs.map((image, i) => (
+      <link key={i} rel="preload" as="image" href={image} />
+    ))}
     <div className="grid grid-cols-9 gap-1 lg:gap-2 max-w-[95vw] mx-auto place-items-center">
-
-      {/* Preload images */}
-      <div style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden', opacity: 0 }}>
-  {imagePairs.map((image, i) => (
-    <img key={i} src={image} alt={"Image " + (i + 1)} style={{ width: 1, height: 1 }} />
-  ))}
-</div>
       {heartLayout.flat().map((index, i) =>
         index !== null ? (
           <motion.div
@@ -151,6 +148,7 @@ export default function PhotoPairGame({
           <div key={i} className="w-[11vh] h-[11vh] lg:w-20 lg:h-20" />
         ),
       )}
-    </div>
+ </div>
+  </>
   );
 }

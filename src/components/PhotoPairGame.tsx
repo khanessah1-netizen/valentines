@@ -61,6 +61,7 @@ const imagePairs = Array.from(
   (_, i) => `/valentines/game-photos/${i + 1}.avif`
 ).flatMap((img) => [img, img]);
 const [images] = useState(() => shuffleArray([...imagePairs]));
+  const handleClick = async (index: number) => {
     if (selected.length === 2 || matched.includes(index) || selected.includes(index)) return;
 
     if (selected.length === 1) {

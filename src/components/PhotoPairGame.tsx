@@ -56,12 +56,11 @@ export default function PhotoPairGame({
   const [selected, setSelected] = useState<number[]>([]);
   const [matched, setMatched] = useState<number[]>([]);
   const [incorrect, setIncorrect] = useState<number[]>([]);
- const imagePairs = Array.from(
-  { length: 36 },
-  (_, i) => `/game-photos/${i + 1}.avif`
-);
+const imagePairs = Array.from(
+  { length: 18 },
+  (_, i) => `/valentines/game-photos/${i + 1}.avif`
+).flatMap((img) => [img, img]);
 const [images] = useState(() => shuffleArray([...imagePairs]));
-  const handleClick = async (index: number) => {
     if (selected.length === 2 || matched.includes(index) || selected.includes(index)) return;
 
     if (selected.length === 1) {

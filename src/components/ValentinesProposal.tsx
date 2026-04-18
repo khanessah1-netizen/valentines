@@ -135,7 +135,7 @@ export default function ValentinesProposal() {
               Will you be my Girlfriend? 
             </h2>
             <Image
-              src="/sad_hamster.png"
+              src="/valentines/sad_hamster.png"
               alt="Sad Hamster"
               width={200}
               height={200}
@@ -176,9 +176,9 @@ export default function ValentinesProposal() {
             exit={{ opacity: 0 }}
           >
             Thank you for accepting, I love you! 💕
-            <p className="text-sm mt-4">For more information, write me!!! 💌</p>
+            <p className="text-sm mt-4">For more information, <a href="https://wa.me/918448559599" target="_blank" className="underline">write me!!! 📩</a></p>
             <Image
-              src="/hamster_jumping.gif"
+              src="/valentines/hamster_jumping.gif"
               alt="Hamster Feliz"
               width={200}
               height={200}
